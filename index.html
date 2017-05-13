@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+	<div id='result'></div>
+	<script type="text/javascript">
+		(function(){
+			var print = function(text){
+				document.getElementById('result').innerHTML=(text);
+			};
+
+			var buildWord = function(word){
+				var word = word;
+				var speed = {current:100,max:2000};
+				var write = function(){
+
+				}
+
+				var randomChar = function(){
+					var random = (Math.floor(Math.random() * 27)+97);//min = 97; max = 122
+					return  String.fromCharCode(random);
+				}
+				var loop = function(){
+					setTimeout(function(){
+						write();
+						if(speed.current <= speed.max){
+							speed.current+=speed.current;
+							loop();
+						}
+					},speed.current);
+				}
+				return {
+					randomChar:randomChar,
+				}
+			}
+			var build = buildWord('gg');
+			console.log(build.randomChar());
+		})();
+	</script>
+</body>
+</html>
